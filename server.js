@@ -4,6 +4,7 @@ const http=require('http');
 const server=http.createServer(app);
 const socketio=require('socket.io');
 const io=socketio(server);
+let PORT=process.env.PORT||1234;
 let users={
     'sahil':"7011",
     'jojo':"7011",
@@ -44,7 +45,7 @@ io.on('connection',(socket)=>{
 
 })
 
-server.listen(1234,()=>
+server.listen(PORT,()=>
 {
-    console.log("server started at http://localhost:1234");
+    console.log(`server started at http://localhost:${PORT}`);
 })
